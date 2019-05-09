@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Cassie">
+  <!-- ie浏览器使用最新的edge引擎渲染页面 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="Notes">
+  <title>Cassie_Notesone_note</title>
+  <link rel="shortcut icon" href="../../images/logo.ico"/>
+  <!-- link bootstrap -->
+  <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"/></script>
+  <script src="../../js/bootstrap.min.js"></script> 
+  <style>
+    body{
+    background-color: #f7f3ee!important;
+    color: #948c76!important;
+    
+    /* #e0cc96 */
+    }
+    a{
+    color: #948c76;
+    }
+    p{
+        padding: 4px;
+        font-size: 18px;
+        border-radius: 4px;
+    }
+    kbd{
+        letter-spacing: 1px;
+        font-size: 15px;
+    }
+    pre{
+        font-size: 14px;
+        line-height: 1.8;
+    }
+    pre code{
+        padding: 2px 4px!important;
+        font-size: 90%!important;
+        color: #c7254e!important;
+        background-color: #f9f2f4!important;
+        border-radius: 4px!important;
+    }
+    
+  </style>
+ </head>
+ <body>
+     <!-- exp：<code> </code>-->
+   <div class="container">
+<h1>JQ的对象、获取、报错、事件、页面载入</h1>
+<p class="bg-primary">一、获取元素上不同</p>
+<pre>
+<kbd>1.dom元素: document.</kbd>     
+exp：<code>document.getElementById()</code>
+<kbd>2.jq对象：$(dom元素)</kbd>  
+exp：<code>$('#id') $('.class') $('tag')</code>
+</pre>
+<p class="bg-primary">二、dom元素与jq对象相互转换</p>
+<pre>
+<kbd>1.dom转jq</kbd>     
+exp：
+<div class="text-primary">HtmlCode: < p class="p1" id="p1">段落< /p>
+</div><code>var p1Dom = document.getElementById('p1')
+console.log(p1Dom)
+console.log('jq', $(p1Dom))</code>
+<kbd>2.jq转dom</kbd>  
+exp：<code>
+var p1Jq = $('p')
+console.log('dom:' , p1Jq[0])
+console.log(p1Dom === p1Jq[0])</code>
+</pre>
+<p class="bg-primary">三、报错机制不同</p>
+<pre>
+<div class="text-primary">innerHTML 是js里面dom对象的属性
+html() 是jquery里面jq对象的方法</div><kbd>1.js报错</kbd>     
+exp：<code>
+console.log(p1Jq.html())
+console.log(p1Dom.html()) <span class="text-muted">// 报错</span>
+alert(1) <span class="text-muted">// js 上面报错下面不执行</span></code>
+<kbd>2.jq不报错</kbd>  
+exp：<code>
+console.log(p1Dom.innerHTML)
+console.log(p1Jq.innerHTML) <span class="text-muted">// 不报错</span>
+alert(1) <span class="text-muted">// jq 上面报错下面依旧执行</span></code>
+</pre>
+<p class="bg-primary">四、事件不同</p>
+<pre>
+<div class="text-primary">HtmlCode:
+< a href="" id="js">js< /a>
+< a href="" id="jq">jq< /a></div><kbd>1.js：on+方法名</kbd>
+domcument.onclick = function() {...}
+exp：<code>
+var js = document.getElementById('js');
+js.onclick = function() {
+    alert('this is js')
+}</code>
+<kbd>2.jq：方法名()</kbd>
+$('').click( function() {} )
+exp：<code>
+var jq = $('#jq');
+jq.click(function(){
+    alert('this is jq')
+})</code>
+</pre>
+<p class="bg-primary">五、页面载入不同</p>
+<pre>
+<kbd>1.jq加载速度比js快</kbd>
+domcument.onclick = function() {...}
+exp：<code>
+window.onload = function(){
+    console.log('选择1');
+}
+$(document).ready(function(){
+    console.log('选择2');
+})
+$(function(){
+    console.log('我要开始装逼了')
+})<span class="text-muted">
+// 选择2
+// 我要开始装逼了
+// 选择1</span></code>
+<kbd>2.js存在覆盖,jq不存在覆盖</kbd>
+</pre>
+</div>
+  </body>
+</html>

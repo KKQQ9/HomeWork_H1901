@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Cassie">
+  <!-- ie浏览器使用最新的edge引擎渲染页面 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="Notes">
+  <title>Cassie_Notestwo_note</title>
+  <link rel="shortcut icon" href="../../images/logo.ico"/>
+  <!-- link bootstrap -->
+  <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"/></script>
+  <script src="../../js/bootstrap.min.js"></script> 
+  <style>
+    body{
+    background-color: #f7f3ee!important;
+    color: #948c76!important;
+    
+    /* #e0cc96 */
+    }
+    a{
+    color: #948c76;
+    }
+    p{
+        padding: 4px;
+        font-size: 18px;
+        border-radius: 4px;
+    }
+    kbd{
+        letter-spacing: 1px;
+        font-size: 15px;
+    }
+    pre{
+        font-size: 14px;
+        line-height: 1.8;
+    }
+    pre code{
+        padding: 2px 4px!important;
+        font-size: 90%!important;
+        color: #c7254e!important;
+        background-color: #f9f2f4!important;
+        border-radius: 4px!important;
+    }
+    
+  </style>
+ </head>
+ <body>
+     <!-- exp：<code> </code>-->
+   <div class="container">
+<h1>选择器获取、关系获取</h1>
+<p class="bg-primary">一、选择器获取</p>
+<pre>
+<kbd>$('选择器')</kbd>     
+exp：<code>$('#id') $('.class') $('tag')</code>
+</pre>
+<p class="bg-primary">二、关系获取</p>
+<pre>
+<kbd>1.亲属关系</kbd>     
+exp：<code><div class="text-primary">HtmlCode:
+< div class="box">
+    < ul>
+        < li>item1< /li>
+        < li class="good">item2< /li>
+        < li>item1< /li>
+        < li>item2< /li>
+        < li class="act">item3
+            < a href="">child
+                < span>grandson< /span>
+            < /a>
+        < /li>
+        < li>item4< /li>
+    < /ul>
+< /div></div>let act = $('.act');
+<span class="text-muted">// 父级</span>
+console.log(act.parent());
+console.log(act.parents('.box'));
+<span class="text-muted">// 兄弟级</span>
+console.log(act.siblings())
+<span class="text-muted">// 子级</span>
+console.log(act.children());
+<span class="text-muted">// 孙子级</span>
+console.log(act.find('span'));</code>
+<kbd>2.前后关系</kbd>  
+exp：<code>
+<span class="text-muted">// 上一个下一个 //单个</span>
+console.log(act.prev())
+console.log(act.next())
+<span class="text-muted">// 上一个下一个 //全部</span>
+<span class="text-muted">// 选中该元素之前的全部元素</span>
+console.log(act.prevAll()) 
+<span class="text-muted">// 选中该元素之前的全部元素中类名为good的元素</span>
+console.log(act.prevAll('.good'))  
+<span class="text-muted">// 选中该元素之后的全部元素</span>
+console.log(act.nextAll()) 
+<span class="text-muted">// 选中该元素之后的全部元素中类名为good的元素</span>
+console.log(act.nextAll('.good'))   
+<span class="text-muted">//  上一个下一个 // 截止</span>
+<span class="text-muted">// 选中该元素之前的全部元素截止到类名为good的元素</span>
+console.log(act.prevUntil('.good')) 
+<span class="text-muted">// 选中该元素之后的全部元素截止到类名为good的元素</span>
+console.log(act.nextUntil('.good')) </code>
+</pre>
+</div>
+  </body>
+</html>

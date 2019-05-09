@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Cassie">
+  <!-- ie浏览器使用最新的edge引擎渲染页面 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="Notes">
+  <title>Cassie_Notesfour_homework</title>
+  <link rel="shortcut icon" href="../../images/logo.ico"/>
+  <!-- link bootstrap -->
+  <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"/></script>
+  <script src="../../js/bootstrap.min.js"></script> 
+  <style>
+    body{
+    background-color: #f7f3ee!important;
+    color: #948c76!important;
+    
+    /* #e0cc96 */
+    }
+  </style>
+ </head>
+ <body>
+     <!-- exp：<code> </code>-->
+   <div class="container">
+        <ul class="nav nav-tabs tab">
+            <li class="active"><a href="">选项一</a></li>
+            <li><a href="">选项二</a></li>
+            <li><a href="">选项三</a></li>
+        </ul>
+        <ul class="tab-content">
+            <li class="tab-pane"><img src="../../images/20190508/banner1.jpg"></li>
+            <li class="tab-pane"><img src="../../images/20190508/banner2.jpg"></li>
+            <li class="tab-pane"><img src="../../images/20190508/banner3.jpg"></li>
+        </ul>
+   </div>
+    <script>
+    let tabs = $('.tab li');
+	let pics = $('.tab-pane');
+	pics.eq(0).css('display','block');
+	for(let i=0;i<tabs.length;i++) {
+		tabs.eq(i).mouseover(function() {
+			for(let j=0;j<tabs.length;j++) {
+				tabs.eq(j).removeClass('active');
+				pics.eq(j).css('display','none');
+			}
+			$(this).addClass('active');
+			pics.eq($(this).index()).css('display','block');
+		});
+	}
+    </script>
+  </body>
+</html>

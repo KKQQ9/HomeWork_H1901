@@ -1,0 +1,27 @@
+body{
+    background-color: #f7f3ee!important;
+    color: #948c76!important;
+    /* #e0cc96 */
+}
+a{
+    color: #948c76;
+}
+.cursor{
+  cursor: url(../images/cursur.png), auto!important;
+}
+
+.nav-tabs li.active a{
+    background-color: #f7f3ee!important;
+    
+}
+.index{
+    border: none!important;
+    box-shadow: none!important;
+    background-color: transparent!important;
+}
+.index .panel-heading{
+    background-color: transparent!important;
+}
+kbd{
+    margin-left: 10px;
+}
